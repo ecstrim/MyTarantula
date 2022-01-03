@@ -5755,12 +5755,7 @@ void home_all_axes() { gcode_G28(true); }
 
           // Unapply the offset because it is going to be immediately applied
           // and cause compensation movement in Z
-          #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
-            const float fade_scaling_factor = planner.fade_scaling_factor_for_z(current_position[Z_AXIS]);
-          #else
-            constexpr float fade_scaling_factor = 1.0f;
-          #endif
-          current_position[Z_AXIS] -= fade_scaling_factor * bilinear_z_offset(current_position);
+          current_position[Z_AXIS] -= bilinear_z_offset(current_position);
 
           #if ENABLED(DEBUG_LEVELING_FEATURE)
             if (DEBUGGING(LEVELING)) SERIAL_ECHOLNPAIR(" corrected Z:", current_position[Z_AXIS]);
@@ -15458,7 +15453,7 @@ void setup() {
     enable_D();
   #endif
 
-  #if ENABLED(SDSUPPORT) && !(ENABLED(ULTRA_LCD) && PIN_EXISTS(SD_DETECT))
+  #if ENABLED(SDSUPPORT) && DISABLED(ULTRA_LCD)
     card.beginautostart();
   #endif
 }
