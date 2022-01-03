@@ -35,7 +35,7 @@
  * Equipment options
  */
 #define LARGE_BED
-#define SDSUPPORT
+//#define SDSUPPORT
 //#define CHANGE_Y_DIRECTION        // If your bed homes in the wrong direction (it should move front to back) enable this.
 //#define CHANGE_X_DIRECTION        // If your X carriage homes in the wrong direction (it should move right to left) enable this.
 #define CHANGE_Z_DIRECTION        // If your Z homes in the wrong direction (it should move top to bottom) enable this.
@@ -1212,7 +1212,7 @@
 // @xtr bed is actually 200x230 because of the Y tensioner
 #define X_BED_SIZE 200
 #if ENABLED(LARGE_BED)
-  #define Y_BED_SIZE 240
+  #define Y_BED_SIZE 230
 #else
   #define Y_BED_SIZE 200
 #endif
