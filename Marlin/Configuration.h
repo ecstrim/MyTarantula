@@ -34,7 +34,7 @@
 /**
  * Equipment options
  */
-#define LARGE_BED
+//#define LARGE_BED
 //#define SDSUPPORT
 //#define CHANGE_Y_DIRECTION        // If your bed homes in the wrong direction (it should move front to back) enable this.
 //#define CHANGE_X_DIRECTION        // If your X carriage homes in the wrong direction (it should move right to left) enable this.
@@ -116,7 +116,7 @@
 /**
  * Margin around perimiter of bed for probing (will not probe outside this margin)
  */
-#define BED_MARGIN         0
+#define BED_MARGIN         15
 
 /**
  * Servo probe deploy and stow angles
@@ -222,7 +222,7 @@
  * Set both to 0 (zero) if you do not have a Z-Probe.
  */
 #define XTRA_BED_FRONT    0  // Distance bed can move towards the front past Y = 200 (Y=280 for large bed)
-#define XTRA_BED_BACK     0  // Distance bed can move towards the back past Y = 0
+#define XTRA_BED_BACK     10  // Distance bed can move towards the back past Y = 0
 
 /**
  * Enable ONLY ONE of these if one of your stepper ports is not working and you wish to use the E1 stepper port.
@@ -612,7 +612,7 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 265
+#define HEATER_0_MAXTEMP 260
 #define HEATER_1_MAXTEMP 265
 #define HEATER_2_MAXTEMP 265
 #define HEATER_3_MAXTEMP 265
@@ -1214,7 +1214,7 @@
 #if ENABLED(LARGE_BED)
   #define Y_BED_SIZE 230
 #else
-  #define Y_BED_SIZE 200
+  #define Y_BED_SIZE 180
 #endif
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -1223,7 +1223,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE + XTRA_BED_RIGHT
 #define Y_MAX_POS Y_BED_SIZE + XTRA_BED_FRONT
-#define Z_MAX_POS 200
+#define Z_MAX_POS 180
 
 /**
  * Software Endstops
